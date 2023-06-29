@@ -1,0 +1,35 @@
+{% extends "acount/padre.html" %}
+{% load static %}
+{% block verPerfil %}
+<div class="container">
+    <div class="row d-flex justify-content-center">
+      <h4 class="d-flex m-3 justify-content-center">Datos de Usuario</h4>
+    </div>
+
+    <h3>{{usuario}}</h3>
+  
+    <div class="d-flex justify-content-center">
+        <table>
+            <table>
+                {{formUser.as_table}}
+            </table>
+        </table>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+      <h4 class="d-flex m-3 justify-content-center">Datos de Perfil</h4>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <table>
+            <table>
+                {{formProfile.as_table}}
+            </table>
+        </table>
+    </div>
+</div>
+ 
+{% endblock %}
+

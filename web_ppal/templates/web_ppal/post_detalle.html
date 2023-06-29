@@ -1,0 +1,45 @@
+{% extends "acount/padre.html" %}
+{% load static %}
+{% block post_detalle %}
+
+<div class="row m-2 d-flex justify-content-center">
+    <div class="card d-flex justify-content-center" style="width: 25rem;">
+      <img src="{{ post.imagen.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h6 class="card-title">Autor: {{post.autor_id}}</h6>
+            <h5 class="card-title">Título: {{post.titulo}}</h5>
+            {% if post.fecha %}
+              <p>Fecha: {{ post.fecha }}</p>
+            {% endif %}
+            <p class="card-text">{{post.texto}}</p>
+            <a href="{% url 'web_ppal:List' %}" class="btn btn-secondary">Volver</a>
+            <a href="{% url 'web_ppal:NewComment'%}?post_id={{ post.id }}" class="btn btn-primary">Comentar</a>
+        </div>
+        <h6>Comentarios:</h6>
+        <ul>
+          {% for comment in post.comments.all %}
+            <li>
+              <div class="row">
+              {{comment.user}}:
+              </div>
+              <div class="row">
+                <p>Fecha: {{ comment.fecha }}</p>
+              </div>
+              <div class="row">
+                {{ comment.comentario }}
+              </div>
+              {% if comment.user == request.user %}
+                <a href="{% url 'web_ppal:EditComment' comment.id %}" class="btn btn-warning">Editar</a>
+                <a href="{% url 'web_ppal:DeleteComment' comment.id %}" class="btn btn-danger">Borrar</a>
+              {% endif %}
+
+            </li>
+          {% empty %}
+            <li>No hay comentarios.</li>
+          {% endfor %}
+        </ul>
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,8 @@
+.imgPersonal{
+    height: 350px;
+    width:auto;
+}
+
+.contenido{
+    flex: 1 0 auto !important;
+}

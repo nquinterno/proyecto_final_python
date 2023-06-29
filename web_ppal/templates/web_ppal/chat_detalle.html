@@ -1,0 +1,41 @@
+{% extends "acount/padre.html" %}
+{% load static %}
+{% block chat_detalle %}
+
+<div class="row m-2 d-flex justify-content-center">
+  <div class="card d-flex justify-content-center" style="width: 100%;">
+    <div class="card-body">
+      {% if chat.usuario1 == request.user %}
+      <h6 class="card-title">{{chat.usuario2}}</h6>
+      {% else %}
+      <h6 class="card-title">{{chat.usuario1}}</h6>
+      {% endif %}
+      {% for mensaje in chat.mensajes.all %}
+        <div class="row">
+          <div class="col-1">
+              <p>{{mensaje.emisor}}</p>
+          </div>
+          <div class="col-2">
+            <p>{{mensaje.fecha_envio}}</p>
+        </div>
+          <div class="col-9">
+              <p>{{mensaje.mensaje}}</p>
+          </div>
+
+        </div>
+      {% empty %}
+        <p>No hay mensajes</p>
+      {% endfor %}
+      <div class="row">
+        <div class="col-6">
+          <a href="{% url 'web_ppal:send_message'%}?chat_id={{ chat.id }}" class="btn btn-primary">Enviar Mensaje</a>
+        </div>
+        <div class="col-6">
+          <a href="{% url 'web_ppal:Chat' %}" class="btn btn-secondary">Volver</a>
+        </div>
+      </div>        
+    </div>
+  </div>
+</div>
+
+{% endblock %}

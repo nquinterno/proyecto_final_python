@@ -1,0 +1,16 @@
+.login{
+    width: 100%;
+    height: 75vh;
+    background-color: #c9c9c9 !important;
+  }
+
+  .avatar{
+    margin-right: 5px;
+    margin-left: 5px;
+    max-width: auto;
+    max-height: 30px;
+  }
+
+  .loginIncorrecto{
+    color:red !important;
+  }

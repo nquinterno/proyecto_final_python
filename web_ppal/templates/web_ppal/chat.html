@@ -1,0 +1,48 @@
+{% extends "acount/padre.html" %}
+{% load static %}
+{% block chat %}
+
+  <div class="container contenido">
+    <!-- <div class="row d-flex justify-content-center">
+      <h3 class="d-flex m-3 justify-content-center">Chats</h3>
+    </div> -->
+    <div class="row m-3 d-flex justify-content-center">
+      
+      <div class="col-3">
+
+      </div>
+      <div class="col-6">
+        <h3 class="d-flex m-3 justify-content-center">Chats</h3>
+      </div>
+      <div class="col-3 ">
+        <a href="{% url 'web_ppal:NewChat' %}" class="btn btn-success m-3">Nueva Conversación</a>
+      </div>
+
+    </div>
+
+    <div class="container">
+      {% for chat in object_list %}
+      <div class="row m-2 d-flex justify-content-center">
+        <div class="card d-flex justify-content-center" style="width: 25rem;">
+          <div class="card-body">
+            {% if chat.usuario1 == request.user %}
+                <h6 class="card-title">{{chat.usuario2}}</h6>
+            {% else %}
+                <h6 class="card-title">{{chat.usuario1}}</h6>
+            {% endif %}
+            <a class="btn btn-primary" href="{% url 'web_ppal:DetailChat' chat.id %}">Ver chat</a>
+            <!-- <p class="card-text">{{post.texto}}</p> -->
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <h5 class="d-flex m-3 justify-content-center">No hay Chats Aún</h5>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

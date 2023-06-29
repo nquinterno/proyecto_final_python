@@ -1,0 +1,16 @@
+{% extends "acount/padre.html" %}
+{% load static %}
+{% block post_form %}
+        <div class="container">
+            <div class="row m-3 d-flex justify-content-center">
+                <h3 class="d-flex m-3 justify-content-center">Nueva Publicación</h3>
+            </div>
+            <div class="row m-3 text-center">
+                <form class="text-center" action="" method="post" enctype ="multipart/form-data">{% csrf_token %}
+                    {{ form.as_p }}
+                    <input class="btn btn-success" type="submit" value="Publicar">
+                    <a href="{% url 'web_ppal:List' %}" class="btn btn-secondary">Volver</a>
+                </form>
+            </div>
+        </div>
+{% endblock %}

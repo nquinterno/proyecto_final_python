@@ -1,0 +1,35 @@
+{% extends "acount/padre.html" %}
+{% load static %}
+{% block aboutMe %}
+
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h2>Nicolás Quinterno</h2>
+                <p class="lead">Mi nombre es Nicolas Quinterno, soy Ingeniero Agrimensor recibido de la Universidad de BUenos Aires en el año 2017, tengo 32 Años y actualmente me desempeño como Subgerente Operativo de registro de Mensuras en el Gobierno de la Ciudad de Buenos Aires, ayudante de catedra de las Materias Agrimensura Legal I y II de la Carrera de Ingeniera en Agrimensura de la UBA, y como profesional independiente en la provincia de Buenos Aires.</p>
+                <!-- <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in the universe.</p> -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Image element - set the background image for the header in the line below-->
+<div class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
+    <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+    <div class="d-flex justify-content-center">
+        <img class="imgPersonal"src="{% static 'web_ppal/assets/img_personal.jpg' %}" alt="">
+    </div>
+</div>
+<!-- Content section-->
+<section class="py-5">
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <h2>Motivacíon</h2>
+                <p class="lead">El presente proyecto web desarrollado en Python bajo el framwork django compone la presentacion final del Curso de Python de Coder House, curso que fue realizado con el objetivo de mejorar mis habilidades de programación con el fin de poder aplicar las habilidades adquiridas al sector en el que me desempeño, o bien poder migrar hacia el sector tecnológico</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

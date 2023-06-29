@@ -1,0 +1,15 @@
+{% extends "acount/padre.html" %}
+{% load static %}
+{% block comment_delete %}
+
+<form action="" method="post">{% csrf_token %}
+    <div class="row">
+        <p>¿Seguro que desea eliminar el Comentario "{{ object }}" ?</p>
+    </div>
+
+    <input class="btn btn-danger" type="submit" value="Borrar">
+
+</form>
+
+
+{% endblock %}

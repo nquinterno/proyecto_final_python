@@ -1,0 +1,37 @@
+{% extends "acount/padre.html" %}
+{% load static %}
+{% block post_list %}
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <h3 class="d-flex m-3 justify-content-center">Publicaciones</h3>
+    </div>
+  </div>
+
+    <div class="container">
+      {% for post in object_list %}
+      <div class="row m-2 d-flex justify-content-center">
+      <div class="card d-flex justify-content-center" style="width: 25rem;">
+        <img src="{{ post.imagen.url }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h6 class="card-title">Autor: {{post.autor_id}}</h6>
+            <h5 class="card-title">Título: {{post.titulo}}</h5>
+            <!-- <p class="card-text">{{post.texto}}</p> -->
+            <a href="{% url 'web_ppal:Detail' post.id %}" class="btn btn-primary">Leer Más</a>
+            {% if post.autor_id == request.user %}
+              <a href="{% url 'web_ppal:Edit' post.id %}" class="btn btn-warning">Editar</a>
+              <a href="{% url 'web_ppal:Delete' post.id %}" class="btn btn-danger">Borrar</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <h5 class="d-flex m-3 justify-content-center">No hay Páginas Aún</h5>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+{% endblock %}
